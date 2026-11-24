@@ -24,7 +24,7 @@ The additional coin packs, coin bonuses and rank benefits are suggested store of
 
 ## Run locally
 
-1. Install Node.js 20 or newer.
+1. Install Node.js 22.x (recommended for the included `better-sqlite3` native module).
 2. Extract the ZIP.
 3. Copy `.env.example` to `.env`.
 4. Change `SESSION_SECRET`, `ADMIN_EMAIL`, and `ADMIN_PASSWORD` in `.env` to unique strong values. Never deploy with the example credentials.
@@ -33,6 +33,12 @@ The additional coin packs, coin bonuses and rank benefits are suggested store of
 7. Open `http://localhost:3000`.
 
 The database `store.db` is created automatically. Back it up regularly.
+
+## Deploying to Vercel
+
+The project pins Node.js to 22.x because the included `better-sqlite3` native addon is not compatible with the Node.js 26 runtime shown in some Vercel build logs. Commit the updated `package.json`, `.nvmrc`, and `.npmrc`, then redeploy. In Vercel Project Settings → General → Node.js Version, select Node.js 22.x if the setting is available.
+
+**Persistence warning:** this app currently uses a local SQLite file (`store.db`) and Express in-memory sessions. Vercel Functions have ephemeral filesystem/runtime instances, so local SQLite data and sessions are not durable across deployments or instances. A successful install/build does not make this production-safe on Vercel. Before accepting real customer accounts or orders, move the database to a persistent hosted database (for example, Postgres) and sessions to a persistent store, or deploy this Node server on a persistent Node host with a persistent disk.
 
 ## Admin panel
 
