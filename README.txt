@@ -1,14 +1,27 @@
-GAMERPOINTMC STORE - SETUP
+GAMERPOINTMC MULTI-PAGE STORE
 
-1. Upload index.html, style.css, config.js and app.js to your web host's public folder.
-2. Edit config.js:
-   - discordUrl: your real Discord invite
-   - javaAddress: Java server address
-   - bedrockAddress and bedrockPort: Bedrock connection details
-   - statusAddress: public address queried for live server status
-   - products: real product names, prices, descriptions and perks
-3. Open the website over HTTPS. Live status uses the public mcsrvstat.us API and refreshes every 60 seconds.
+Pages:
+- index.html: home, live status, server details, featured catalog
+- ranks.html: Diamond, Ascendant, Immortal
+- coins.html: coin packages
+- tags.html: chat tags
+- cart.html: persistent add-to-cart cart and Discord order summary
+- how-to-order.html: ordering instructions
 
-Orders open your Discord invite. This is manual ordering; it does not process payments or automatically deliver products. Do not ask customers for Minecraft passwords.
+Setup:
+1. Upload the entire GamerPointMC-MultiPage-Store folder contents to your web host's public folder, keeping assets/ intact.
+2. The supplied GamerPointMC logo is in assets/gamerpointmc-logo.png.
+3. Your supplied details are already configured:
+   Discord: https://discord.gg/T8h5gp5fET
+   Java: play.gamerpointmc.qzz.io
+   Bedrock: pe.gamerpointmc.qzz.io port 443
+4. Edit products.js to set real prices, coin quantities, and final rank/tag perks. Current prices say "Ask on Discord" because no exact prices were supplied.
+5. Live player count and MOTD use the public mcsrvstat.us API and refresh once per minute.
 
-The starter catalog uses Ascendant, Immortal and Radiant as rank examples. Update it to match your current store.
+Cart:
+- Cart is saved in the visitor's browser using localStorage.
+- Send Order copies a summary and opens your Discord invite.
+- This is manual Discord checkout, not automatic payment processing or automatic rank delivery.
+- Do not request Minecraft account passwords.
+
+Host all files together on a static host such as GitHub Pages, Netlify, Cloudflare Pages, or normal web hosting.
