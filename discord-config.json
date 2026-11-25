@@ -1,0 +1,6 @@
+{
+  "token": "PASTE_YOUR_DISCORD_BOT_TOKEN_HERE",
+  "adminChannelId": "YOUR_PRIVATE_ORDER_CHANNEL_ID",
+  "guildId": "YOUR_DISCORD_SERVER_ID",
+  "adminRoleId": ""
+}
