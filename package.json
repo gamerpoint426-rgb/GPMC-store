@@ -1,0 +1,16 @@
+{
+  "name": "gamerpointmc-discord-store",
+  "version": "3.0.0",
+  "private": true,
+  "description": "GamerPointMC multi-page store with a separate Discord bot module, manual UPI verification and Discord-managed coupons",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "check": "node --check server.js && node --check bot.js && node --check coupon-store.js" },
+  "engines": { "node": ">=22 <23" },
+  "dependencies": {
+    "discord.js": "^14.19.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "rcon-client": "^4.2.5"
+  }
+}
